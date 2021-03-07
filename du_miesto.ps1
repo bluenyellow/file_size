@@ -1,3 +1,5 @@
+#DUSH
+
 function du($dir=".") { 
     get-childitem $dir | 
       ForEach-Object { $f = $_ ; 
