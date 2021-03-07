@@ -1,4 +1,4 @@
-#DUSH
+
 
 function du($dir=".") { 
     get-childitem $dir | 
