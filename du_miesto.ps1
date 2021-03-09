@@ -1,9 +1,9 @@
 
 
 function du($dir=".") { 
-    get-childitem -Force $dir | 
+    get-childitem -ErrorAction SilentlyContinue -Force $dir | 
       ForEach-Object { $f = $_ ; 
-          get-childitem -Force -r $_.FullName | 
+          get-childitem -ErrorAction SilentlyContinue -Force -r $_.FullName | 
              measure-object -property length -sum |
                Select-Object @{Name="Name";Expression={$f}},Sum} | Sort-Object -Descending Sum
                
