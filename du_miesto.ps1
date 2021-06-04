@@ -1,10 +1,10 @@
 
 
-function du($dir=".") { 
+function du($dir="C:\Users\adamica") { 
     get-childitem -ErrorAction SilentlyContinue -Force $dir | 
       ForEach-Object { $f = $_ ; 
           get-childitem -ErrorAction SilentlyContinue -Force -r $_.FullName | 
-             measure-object -property length -sum |
+             measure-object -ErrorAction SilentlyContinue -property length -sum |
                Select-Object @{Name="Name";Expression={$f}},Sum} | Sort-Object -Descending Sum
                
   }
@@ -22,8 +22,7 @@ Function Format-DiskSize() {
     } # End of function
     
     
-    #$BigNumber = "320000"
-    #Format-DiskSize $BigNumber
+    
 
     $toto=du
    
